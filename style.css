@@ -1,0 +1,262 @@
+/* Resetta base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Corpo della pagina */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: 'Merriweather', serif;
+    background-color: white;
+    color: #333;
+}
+
+/* Header */
+header {
+    padding: 20px;
+    background-color: white;
+    border-bottom: 2px solid #ccc;
+    text-align: center;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Menu Lingua a sinistra - Versione Desktop */
+.language-selector {
+    position: absolute;
+    left: 20px; /* Posizione a sinistra nella versione desktop */
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.language-selector select {
+    padding: 5px 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    background-color: white; /* Sfondo bianco */
+}
+
+/* Logo al centro */
+header .logo {
+    text-align: center;
+}
+
+header .logo img {
+    max-width: 150px;
+}
+
+/* Hamburger menu */
+.hamburger {
+    display: none; /* Nasconde hamburger su desktop */
+    font-size: 30px;
+    cursor: pointer;
+    position: absolute;
+    top: 50%; /* Centra verticalmente */
+    right: 20px; /* Posizione a destra */
+    transform: translateY(-50%); /* Compensa per centrarlo esattamente */
+    z-index: 10;
+    transition: transform 0.3s ease;
+}
+
+.hamburger div {
+    width: 30px;
+    height: 4px;
+    background-color: #333;
+    margin: 6px 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Quando il menu è aperto, cambia la forma dell'hamburger a "X" */
+.hamburger.open div:nth-child(1) {
+    transform: translateY(10px) rotate(45deg);
+}
+
+.hamburger.open div:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.open div:nth-child(3) {
+    transform: translateY(-10px) rotate(-45deg);
+}
+
+/* Menu mobile */
+nav ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Allinea le voci in cima */
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; /* Assicurati che il menu copra l'intera altezza dello schermo */
+    background-color: white;
+    padding: 50px 0; /* Spazio in alto per la prima voce */
+    transform: translateX(-100%); /* Menu nascosto inizialmente a sinistra */
+    z-index: 5;
+    overflow-y: auto; /* Permette lo scroll verticale delle voci */
+}
+
+/* Menu visibile con animazione */
+nav ul.show {
+    transform: translateX(0); /* Menu visibile con animazione */
+    transition: transform 0.3s ease-in-out; /* Transizione di apertura */
+}
+
+/* Menu che scompare verso sinistra */
+nav ul.hide {
+    transform: translateX(-100%); /* Menu che sparisce verso sinistra */
+    transition: transform 0.3s ease-in-out; /* Transizione di chiusura */
+}
+
+/* Link del menu */
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 20px; /* Aumentato il font */
+    font-weight: 700;
+    margin: 15px 0; /* Ridotto il margine tra le voci */
+    transition: color 0.3s ease;
+}
+
+/* Effetto hover sottolineatura nera */
+nav ul li a:hover {
+    text-decoration: underline;
+    text-decoration-color: black; /* Colore della sottolineatura */
+    text-decoration-thickness: 2px; /* Spessore della sottolineatura */
+}
+
+/* Menu orizzontale (desktop) */
+@media (min-width: 769px) {
+    nav ul {
+        display: flex; /* Menu orizzontale */
+        justify-content: center;
+        align-items: center;
+        flex-direction: row; /* Menu orizzontale */
+        margin-top: 0;
+        padding: 0;
+        position: static; /* Menu fisso e orizzontale */
+        width: 100%;
+        transform: none !important; /* Impedisce qualsiasi movimento */
+        background-color: transparent; /* Assicura che il background del menu non si muova */
+    }
+
+    nav ul li {
+        margin: 0 20px; /* Distanza tra le voci */
+    }
+
+    nav ul li a {
+        font-size: 18px;
+        font-weight: 700;
+        text-decoration: none;
+        color: #333;
+        transition: color 0.3s ease; /* Rende fluido l'effetto hover */
+    }
+
+    /* Nascondi hamburger menu su desktop */
+    .hamburger {
+        display: none; /* Nasconde l'hamburger su desktop */
+    }
+}
+
+/* Centrare il testo del main content */
+.home {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.home h1, .home p {
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+    position: relative;
+    bottom: 0;
+    margin-top: auto;
+}
+
+footer p {
+    margin-bottom: 5px;
+}
+
+/* Social media links */
+.social-links {
+    margin-top: 10px;
+}
+
+.social-links a {
+    margin: 0 15px;
+    display: inline-block;
+}
+
+.social-links img {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.social-links img:hover {
+    transform: scale(1.1);
+}
+
+/* Hamburger menu visibile solo su mobile */
+@media (max-width: 768px) {
+    .hamburger {
+        display: block; /* Mostra hamburger solo su dispositivi mobili */
+    }
+
+    nav ul.show {
+        transform: translateX(0); /* Menu visibile con animazione */
+        transition: transform 0.3s ease-in-out; /* Transizione di apertura */
+    }
+
+    nav ul.hide {
+        transform: translateX(-100%); /* Menu che scompare verso sinistra */
+        transition: transform 0.3s ease-in-out; /* Transizione di chiusura */
+    }
+
+    /* Selettore lingue versione mobile */
+    .language-selector {
+        position: absolute;
+        left: 0px; /* Spostato ancora più a sinistra */
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .language-selector select {
+        padding: 2px 5px; /* Ancora più ridotto */
+        font-size: 10px; /* Font più piccolo */
+        border: 1px solid #ccc;
+        background-color: white; /* Sfondo bianco */
+    }
+
+    /* Menu mobile con maggiore distanza tra le voci */
+    nav ul li {
+        margin: 20px 0; /* Aumentato il margine tra le voci */
+    }
+
+    /* Rendi più grande il font delle voci del menu */
+    nav ul li a {
+        font-size: 22px; /* Font più grande */
+    }
+}
+
+/* Disabilita lo scroll quando il menu è aperto */
+.no-scroll {
+    overflow: hidden;
+}
