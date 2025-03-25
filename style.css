@@ -1,0 +1,208 @@
+/* Resetta base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Corpo della pagina */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: 'Merriweather', serif;
+    background-color: white;
+    color: #333;
+}
+
+/* Header */
+header {
+    padding: 20px;
+    background-color: white;
+    border-bottom: 2px solid #ccc;
+    text-align: center;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Menu Lingua a sinistra */
+.language-selector {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.language-selector select {
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    background-color: white;
+    cursor: pointer;
+}
+
+/* Logo al centro */
+header .logo {
+    text-align: center;
+}
+
+header .logo img {
+    max-width: 150px;
+}
+
+/* Hamburger menu */
+.hamburger {
+    display: none; /* Nasconde hamburger su desktop */
+    font-size: 30px;
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 10;
+    transition: transform 0.3s ease;
+}
+
+.hamburger div {
+    width: 30px;
+    height: 4px;
+    background-color: #333;
+    margin: 6px 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Menu mobile */
+nav ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    padding: 60px 0;
+    transform: translateX(-100%); /* Menu nascosto inizialmente senza animazione */
+    z-index: 5;
+}
+
+/* Aggiungiamo transizione solo quando il menu viene aperto/chiuso */
+nav ul.show {
+    transform: translateX(0); /* Menu visibile con animazione */
+    transition: transform 0.3s ease-in-out; /* Transizione di apertura */
+}
+
+nav ul.hide {
+    transform: translateX(100%); /* Menu chiuso con animazione */
+    transition: transform 0.3s ease-in-out; /* Transizione di chiusura */
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 18px;
+    font-weight: 700;
+    margin: 20px 0;
+}
+
+/* Menu orizzontale (desktop) */
+@media (min-width: 769px) {
+    nav ul {
+        display: flex; /* Menu orizzontale */
+        justify-content: center;
+        align-items: center;
+        flex-direction: row; /* Menu orizzontale */
+        margin-top: 0;
+        padding: 0;
+        position: static; /* Menu fisso e orizzontale */
+        width: 100%;
+        transform: none !important; /* Impedisce qualsiasi movimento */
+        background-color: transparent; /* Assicura che il background del menu non si muova */
+    }
+
+    nav ul li {
+        margin: 0 20px; /* Distanza tra le voci */
+    }
+
+    nav ul li a {
+        font-size: 18px;
+        font-weight: 700;
+        text-decoration: none;
+        color: #333;
+        transition: color 0.3s ease; /* Rende fluido l'effetto hover */
+    }
+
+    /* Nascondi hamburger menu su desktop */
+    .hamburger {
+        display: none; /* Nasconde l'hamburger su desktop */
+    }
+}
+
+/* Centrare il testo del main content */
+.home {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.home h1, .home p {
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+    position: relative;
+    bottom: 0;
+    margin-top: auto;
+}
+
+footer p {
+    margin-bottom: 5px;
+}
+
+/* Social media links */
+.social-links {
+    margin-top: 10px;
+}
+
+.social-links a {
+    margin: 0 15px;
+    display: inline-block;
+}
+
+.social-links img {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.social-links img:hover {
+    transform: scale(1.1);
+}
+
+/* Hamburger menu visibile solo su mobile */
+@media (max-width: 768px) {
+    .hamburger {
+        display: block; /* Mostra hamburger solo su dispositivi mobili */
+    }
+
+    nav ul.show {
+        transform: translateX(0); /* Menu visibile con animazione */
+        transition: transform 0.3s ease-in-out; /* Transizione solo quando l'utente interagisce */
+    }
+
+    nav ul.hide {
+        transform: translateX(100%); /* Menu chiuso con animazione */
+        transition: transform 0.3s ease-in-out;
+    }
+}
