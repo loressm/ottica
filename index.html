@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ottica Elegante</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Rettangolo sopra l'header -->
+    <div class="decorativo">
+        <p>La tua vista, il nostro impegno</p>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <!-- Menu Lingua a sinistra -->
+        <div class="language-selector">
+            <select onchange="changeLanguage(this.value)">
+                <option value="index.html">🇮🇹 ITA</option>
+                <option value="index-en.html">🇬🇧 ENG</option>
+            </select>
+        </div>
+
+        <!-- Logo al centro -->
+        <div class="logo">
+            <a href="index.html">
+                <img src="logo.png" alt="Logo Ottica Elegante">
+            </a>
+        </div>
+
+        <!-- Hamburger menu -->
+        <div class="hamburger" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </header>
+
+    <!-- Banner decorativo sotto l'header (solo mobile) -->
+    <div class="banner-mobile">
+        <p>Benvenuti nella nostra ottica!</p>
+    </div>
+
+    <!-- Menu mobile -->
+    <nav>
+        <ul>
+            <li><a href="chi-siamo.html">Chi siamo</a></li>
+            <li><a href="catalogo.html">Catalogo</a></li>
+            <li><a href="servizi.html">Servizi</a></li>
+            <li><a href="test-snellen.html">Test di Snellen</a></li>
+            <li><a href="contatti.html">Contatti</a></li>
+        </ul>
+    </nav>
+
+    <!-- Home Section -->
+    <section class="home">
+    <img src="ragazza.jpg" alt="Immagine di una ragazza" class="main-image">
+    <h1>Benvenuti in Ottica Elegante</h1>
+    <p>La tua visione, la nostra missione. Scopri occhiali e servizi di alta qualità.</p>
+</section>
+
+    <!-- Footer -->
+    <footer>
+        <p>Ottica De Rossi</p>
+        <p>Partita IVA: 123456789</p>
+        <p>Seguici sui social:</p>
+        <div class="social-links">
+            <a href="https://www.facebook.com" target="_blank">
+                <img src="logofb.png" alt="Facebook">
+            </a>
+            <a href="https://www.instagram.com" target="_blank">
+                <img src="logoig.png" alt="Instagram">
+            </a>
+        </div>
+    </footer>
+
+    <!-- Rettangolo sotto il footer -->
+    <div class="decorativo-footer">
+        <p>Rendi la tua visione unica con Ottica Elegante</p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
