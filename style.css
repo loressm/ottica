@@ -1,0 +1,334 @@
+/* Resetta base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Corpo della pagina */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: 'Merriweather', serif;
+    background-color: white;
+    color: #333;
+    overflow-x: hidden; /* Impedisce lo scroll orizzontale */
+}
+
+/* Header */
+header {
+    padding: 0;
+    background-color: #FFF7E6; /* Cambiato in panna chiaro */
+    border-bottom: none;
+    text-align: center;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Logo al centro */
+header .logo {
+    text-align: center;
+}
+
+header .logo img {
+    max-width: 150px;
+}
+
+/* Icona telefono */
+.phone-icon {
+    display: none; /* Impostiamo "display: none" di default per mobile */
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 30px;
+    color: black; /* Cornetta nera */
+    z-index: 5; /* Posiziona l'icona sopra il resto ma sotto l'hamburger */
+    cursor: pointer;
+}
+
+/* Quando l'icona telefonica è visibile (mobile) */
+@media (max-width: 768px) {
+    .phone-icon {
+        display: block; /* Rendi visibile la cornetta solo su mobile */
+    }
+
+    /* Nascondi la cornetta quando il menu hamburger è aperto */
+    .hamburger.open + .phone-icon {
+        display: none;
+    }
+}
+
+/* Hamburger menu */
+.hamburger {
+    display: none; /* Nasconde hamburger su desktop */
+    font-size: 30px;
+    cursor: pointer;
+    position: absolute;
+    top: 50%; /* Centra verticalmente */
+    right: 20px; /* Posizione a destra */
+    transform: translateY(-50%);
+    z-index: 10; /* Metti l'hamburger sopra la cornetta */
+    transition: transform 0.3s ease;
+}
+
+.hamburger div {
+    width: 30px;
+    height: 4px;
+    background-color: #333;
+    margin: 6px 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Quando il menu è aperto, cambia la forma dell'hamburger a "X" */
+.hamburger.open div:nth-child(1) {
+    transform: translateY(10px) rotate(45deg);
+}
+
+.hamburger.open div:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.open div:nth-child(3) {
+    transform: translateY(-10px) rotate(-45deg);
+}
+
+/* Menu mobile */
+nav ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    padding: 50px 0;
+    transform: translateX(-100%);
+    z-index: 9; /* Il menu deve essere sopra la cornetta, ma sotto l'hamburger */
+    overflow-y: auto;
+}
+
+nav ul.show {
+    transform: translateX(0);
+    transition: transform 0.3s ease-in-out;
+}
+
+nav ul.hide {
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 20px;
+    font-weight: 700;
+    margin: 15px 0;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+    text-decoration-color: black;
+    text-decoration-thickness: 2px;
+}
+
+/* Menu orizzontale (desktop) */
+@media (min-width: 769px) {
+    nav ul {
+        display: flex; /* Menu orizzontale dentro l'header */
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+        margin-top: 0;
+        padding: 10px 0;
+        position: static;
+        width: 100%;
+        background-color: #FFF7E6;
+        transform: none !important;
+    }
+
+    nav ul li {
+        margin: 0 20px;
+    }
+
+    nav ul li a {
+        font-size: 18px;
+        font-weight: 700;
+        text-decoration: none;
+        color: #333;
+        transition: color 0.3s ease;
+    }
+
+    .hamburger {
+        display: none;
+    }
+}
+
+/* Centrare il testo del main content */
+.home {
+    text-align: center;
+    margin-top: 0;
+}
+
+/* Foto della ragazza */
+.main-image {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+}
+
+/* Footer */
+footer {
+    background-color: #FFF7E6;
+    color: #333;
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+    position: relative;
+    bottom: 0;
+    margin-top: auto;
+}
+
+footer p {
+    margin-bottom: 5px;
+}
+
+/* Social media links */
+.social-links {
+    margin-top: 10px;
+}
+
+.social-links a {
+    margin: 0 15px;
+    display: inline-block;
+}
+
+.social-links img {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.social-links img:hover {
+    transform: scale(1.1);
+}
+
+/* Hamburger menu visibile solo su mobile */
+@media (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+
+    nav ul.show {
+        transform: translateX(0);
+        transition: transform 0.3s ease-in-out;
+    }
+
+    nav ul.hide {
+        transform: translateX(-100%);
+        transition: transform 0.3s ease-in-out;
+    }
+
+    nav ul li {
+        margin: 20px 0;
+    }
+
+    nav ul li a {
+        font-size: 22px;
+    }
+
+    .home {
+        margin-top: 0;
+    }
+}
+
+/* Disabilita lo scroll quando il menu è aperto */
+.no-scroll {
+    overflow: hidden;
+}
+
+/* Rettangoli sopra e sotto l'header */
+.decorativo, .decorativo-footer {
+    width: 100%;
+    height: 40px;
+    background-color: #FFF7E6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Testo all'interno dei rettangoli */
+.decorativo p, .decorativo-footer p {
+    color: black;
+    font-size: 16px;
+    margin: 0;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    text-align: center;
+}
+
+/* Banner decorativo */
+.decorativo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    flex-wrap: wrap; /* Permette agli elementi di andare a capo su schermi più piccoli */
+}
+
+/* Selettore lingue (sinistra) */
+#language-selector {
+    order: 0; /* Posizione a sinistra */
+    flex-shrink: 0; /* Impedisce che il selettore di lingue si riduca su schermi piccoli */
+    margin-left: 0;
+}
+
+/* Frase nel banner (centrato) */
+.decorativo p {
+    order: 1; /* Posiziona la frase dopo il selettore */
+    flex-grow: 1; /* Permette alla frase di occupare lo spazio disponibile */
+    text-align: center; /* Centra la frase */
+    word-wrap: break-word; /* Consente alla frase di andare a capo se necessario */
+    margin: 0;
+}
+
+/* Selettore lingue nel banner mobile */
+@media (max-width: 768px) {
+    .decorativo {
+        flex-direction: row; /* Aggiungi orientamento orizzontale per schermi più piccoli */
+    }
+
+    #language-selector {
+        order: 1; /* Il selettore di lingue viene prima della frase */
+    }
+
+    .decorativo p {
+        order: 2; /* La frase va dopo il selettore */
+    }
+}
+
+/* Selettore lingue senza bordo e sfondo trasparente */
+#language-selector {
+    border: none; /* Rimuove il bordo */
+    background-color: transparent; /* Imposta lo sfondo trasparente */
+    padding: 0; /* Rimuove eventuali padding predefiniti */
+    appearance: none; /* Rimuove lo stile predefinito del selettore (per browser come Safari) */
+    -webkit-appearance: none; /* Rimuove lo stile predefinito su Safari */
+    -moz-appearance: none; /* Rimuove lo stile predefinito su Firefox */
+}
+
+#language-selector:focus {
+    outline: none; /* Rimuove il bordo di focus */
+}
