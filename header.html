@@ -1,0 +1,217 @@
+<!-- header.html -->
+<style>
+    /* CSS per l'header */
+    header {
+        padding: 0;
+        background-color: #FFF7E6; /* Cambiato in panna chiaro */
+        border-bottom: none;
+        text-align: center;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+    }
+
+    /* Logo al centro */
+    header .logo {
+        text-align: center;
+    }
+
+    header .logo img {
+        max-width: 150px;
+    }
+
+    /* Icona telefono */
+    .phone-icon {
+        display: none; /* Impostiamo "display: none" di default per mobile */
+        position: absolute;
+        left: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 30px;
+        color: black; /* Cornetta nera */
+        z-index: 5; /* Posiziona l'icona sopra il resto ma sotto l'hamburger */
+        cursor: pointer;
+    }
+
+    /* Quando l'icona telefonica è visibile (mobile) */
+    @media (max-width: 768px) {
+        .phone-icon {
+            display: block; /* Rendi visibile la cornetta solo su mobile */
+        }
+
+        /* Nascondi la cornetta quando il menu hamburger è aperto */
+        .hamburger.open + .phone-icon {
+            display: none;
+        }
+    }
+
+    /* Hamburger menu */
+    .hamburger {
+        display: none; /* Nasconde hamburger su desktop */
+        font-size: 30px;
+        cursor: pointer;
+        position: absolute;
+        top: 50%; /* Centra verticalmente */
+        right: 20px; /* Posizione a destra */
+        transform: translateY(-50%);
+        z-index: 10; /* Metti l'hamburger sopra la cornetta */
+        transition: transform 0.3s ease;
+    }
+
+    .hamburger div {
+        width: 30px;
+        height: 4px;
+        background-color: #333;
+        margin: 6px 0;
+        transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    /* Quando il menu è aperto, cambia la forma dell'hamburger a "X" */
+    .hamburger.open div:nth-child(1) {
+        transform: translateY(10px) rotate(45deg);
+    }
+
+    .hamburger.open div:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.open div:nth-child(3) {
+        transform: translateY(-10px) rotate(-45deg);
+    }
+
+    /* Menu mobile */
+    nav ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: white;
+        padding: 50px 0;
+        transform: translateX(-100%);
+        z-index: 9; /* Il menu deve essere sopra la cornetta, ma sotto l'hamburger */
+        overflow-y: auto;
+    }
+
+    nav ul.show {
+        transform: translateX(0);
+        transition: transform 0.3s ease-in-out;
+    }
+
+    nav ul.hide {
+        transform: translateX(-100%);
+        transition: transform 0.3s ease-in-out;
+    }
+
+    nav ul li a {
+        text-decoration: none;
+        color: #333;
+        font-size: 20px;
+        font-weight: 700;
+        margin: 15px 0;
+        transition: color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+        text-decoration: underline;
+        text-decoration-color: black;
+        text-decoration-thickness: 2px;
+    }
+
+    /* Menu orizzontale (desktop) */
+    @media (min-width: 769px) {
+        nav ul {
+            display: flex; /* Menu orizzontale dentro l'header */
+            justify-content: center;
+            align-items: center;
+            flex-direction: row;
+            margin-top: 0;
+            padding: 10px 0;
+            position: static;
+            width: 100%;
+            background-color: #FFF7E6;
+            transform: none !important;
+        }
+
+        nav ul li {
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            font-size: 18px;
+            font-weight: 700;
+            text-decoration: none;
+            color: #333;
+            transition: color 0.3s ease;
+        }
+
+        .hamburger {
+            display: none;
+        }
+    }
+
+    /* Hamburger menu visibile solo su mobile */
+    @media (max-width: 768px) {
+        .hamburger {
+            display: block;
+        }
+
+        nav ul.show {
+            transform: translateX(0);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        nav ul.hide {
+            transform: translateX(-100%);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        nav ul li {
+            margin: 20px 0;
+        }
+
+        nav ul li a {
+            font-size: 22px;
+        }
+    }
+
+    /* Disabilita lo scroll quando il menu è aperto */
+    .no-scroll {
+        overflow: hidden;
+    }
+</style>
+
+<div class="logo">
+    <a href="index.html">
+        <img src="logo.png" alt="Logo Ottica">
+    </a>
+</div>
+<!-- Icona telefono a sinistra (versione mobile) -->
+<a href="tel:123456789" class="phone-icon">
+    <i class="fas fa-phone-alt"></i>
+</a>
+<!-- Menu mobile e desktop -->
+<nav>
+    <ul>
+        <li><a href="chi-siamo.html">Chi siamo</a></li>
+        <li><a href="catalogo.html">Il nostro catalogo</a></li>
+        <li><a href="servizi.html">Servizi</a></li>
+        <li><a href="contatti.html">Contattaci</a></li>
+        <li><a href="chi-siam.html">prova4</a></li>
+        <li><a href="catalog.html">prova3</a></li>
+        <li><a href="serviz.html">prova2</a></li>
+        <li><a href="contatt.html">prova</a></li>
+    </ul>
+</nav>
+<div class="hamburger" onclick="toggleMenu()">
+    <div></div>
+    <div></div>
+    <div></div>
+</div>
