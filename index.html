@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apicoltura Biologica</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lora:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Aggiungi Font Awesome per l'icona del telefono -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Rettangolo sopra l'header -->
+    <div class="decorativo">
+        <p>Al servizio dei tuoi occhi</p>
+        <select id="language-selector" onchange="changeLanguage(this.value)">
+            <option value="it" data-flag="🇮🇹">ITA 🇮🇹</option>
+            <option value="en" data-flag="🇬🇧">ENG 🇬🇧</option>
+        </select>
+    </div>
+
+    <!-- Header dinamico -->
+    <div id="dynamic-header"></div> <!-- Qui verrà caricato l'header -->
+
+    <!-- Home Section -->
+    <section class="home">
+        <img src="ragazza.jpg" alt="Immagine di una ragazza con occhiali" class="main-image">
+        <h1>Benvenuti in Ottica De Rossi</h1>
+    </section>
+
+    <!-- Introduzione -->
+    <section class="introduzione" style="text-align: center; padding: 20px;">
+        <p>Da anni, ci dedichiamo con passione e competenza alla cura della vista, offrendo occhiali e lenti di alta qualità per tutti. Il nostro negozio di ottica è il luogo dove la tecnologia incontra lo stile, per garantirti una visione nitida e confortevole in ogni momento della tua giornata.</p>
+
+        <p>Ogni paio di occhiali che scegliamo per te è il risultato di una selezione accurata dei migliori materiali e delle ultime innovazioni. Offriamo una vasta gamma di montature eleganti e lenti performanti, pensate per rispondere a tutte le esigenze visive e stilistiche.</p>
+
+        <p>Scopri il nostro negozio di ottica e trova il modello perfetto per te. Con i nostri occhiali, ogni sguardo è più chiaro e ogni passo è più sicuro. Prenditi cura della tua vista e vivi con stile!</p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>Ottica De Rossi</p>
+        <p>Partita IVA: 123456789</p>
+        <p>Seguici sui social:</p>
+        <div class="social-links">
+            <a href="https://www.facebook.com" target="_blank">
+                <img src="logofb.png" alt="Facebook">
+            </a>
+            <a href="https://www.instagram.com" target="_blank">
+                <img src="logoig.png" alt="Instagram">
+            </a>
+        </div>
+    </footer>
+
+    <!-- Rettangolo sotto il footer -->
+    <div class="decorativo-footer">
+        <p>Ottica De Rossi ©2025</p>
+    </div>
+
+    <script src="header.js" defer></script> <!-- Caricamento dinamico dell'header -->
+    <script src="script.js"></script>
+</body>
+</html>
